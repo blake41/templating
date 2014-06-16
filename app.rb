@@ -20,15 +20,33 @@ module Name
     #filters
 
     #routes
+# example of compiling coffee on the fly
+    get '/application.js' do
+      # content_type "text/javascript"
+      coffee :application
+    end
+
     get '/myroot' do
       erb :index
     end
 
-    get "/mysnip" do
-      erb :mysnip, :layout => false
+    get "/root_coffee" do
+      erb :root_coffee
     end
 
-    get "/somehaml" do
+    get "/mysnip" do
+      erb :mysnip#, :layout => false
+    end
+
+    get "/random" do
+      id = [1,2].shuffle[0]
+      @person = Person.find(id)
+      haml :somehaml
+    end
+
+    get "/somehaml/:id" do
+      id = params[:id]
+      @person = Person.find(id)
       haml :somehaml
     end
 

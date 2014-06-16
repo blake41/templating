@@ -7,6 +7,7 @@ gem "activerecord"
 gem "sinatra-activerecord"
 gem "rake"
 gem 'haml'
+gem "therubyracer"
 
 group :development do
   gem "shotgun"
