@@ -35,7 +35,7 @@ module Name
     end
 
     get "/mysnip" do
-      erb :mysnip#, :layout => false
+      erb :mysnip, :layout => false
     end
 
     get "/random" do
